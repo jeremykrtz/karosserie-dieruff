@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karosserie Dieruff - Ihr Meisterbetrieb für Karosserie und Autolackierung in Stuttgart-Degerloch. Seit über 35 Jahren Qualität und Präzision. Unfallreparatur, Hagelschaden, Oldtimer-Restaurierung.">
+    <meta name="keywords" content="Karosserie Stuttgart, Autolackierung Stuttgart, Unfallreparatur Degerloch, Hagelschaden Reparatur, Oldtimer Restaurierung, Meisterbetrieb Karosserie, Lackiererei Stuttgart, Dellenreparatur, PDR Stuttgart">
+    <meta name="author" content="Karosserie Dieruff">
+    <meta name="geo.region" content="DE-BW">
+    <meta name="geo.placename" content="Stuttgart-Degerloch">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Karosserie Dieruff | Meisterbetrieb Stuttgart-Degerloch">
+    <meta property="og:description" content="Fachgerechte Karosserie- und Lackierarbeiten seit über 35 Jahren. Familiengeführter Meisterbetrieb in Stuttgart.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+
+    <title>Karosserie Dieruff | Meisterbetrieb Stuttgart-Degerloch | Seit 35+ Jahren</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CSS VARIABLES & RESET
+           ============================================ */
+        :root {
+            /* Primary Colors */
+            --charcoal-dark: #0d0d0d;
+            --charcoal: #1a1a1a;
+            --charcoal-light: #2d2d2d;
+            --charcoal-lighter: #3d3d3d;
+
+            /* Metallic Silver */
+            --silver-dark: #8a8a8a;
+            --silver: #b8b8b8;
+            --silver-light: #d4d4d4;
+            --silver-bright: #e8e8e8;
+
+            /* Automotive Red */
+            --red-dark: #6b0f0f;
+            --red: #8b1a1a;
+            --red-light: #a52a2a;
+            --red-bright: #c73333;
+
+            /* Gradients */
+            --gradient-metal: linear-gradient(135deg, var(--silver-dark) 0%, var(--silver-light) 50%, var(--silver-dark) 100%);
+            --gradient-red: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 50%, var(--red-light) 100%);
+            --gradient-dark: linear-gradient(180deg, var(--charcoal-dark) 0%, var(--charcoal) 100%);
+
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+
+            /* Spacing */
+            --section-padding: 100px 0;
+            --container-width: 1200px;
+
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --transition-slow: 0.6s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--charcoal-dark);
+            color: var(--silver-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            color: var(--silver-bright);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--silver);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+        }
+
+        .accent-line {
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-red);
+            margin: 0 auto 2rem;
+        }
+
+        /* Animation Classes */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity var(--transition-slow);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+
+        /* ============================================
+           NAVIGATION
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all var(--transition-medium);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--silver-bright);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--red);
+            transition: width var(--transition-medium);
+        }
+
+        .nav-links a:hover {
+            color: var(--silver-bright);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--silver-bright);
+            transition: all var(--transition-fast);
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.3);
+            transform: scale(1.1);
+            transition: transform 0.1s ease-out;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(13, 13, 13, 0.6) 0%,
+                rgba(13, 13, 13, 0.4) 50%,
+                rgba(13, 13, 13, 0.9) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--red);
+            color: var(--red-bright);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--silver-bright);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-metal);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--silver);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.7s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.9s forwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all var(--transition-medium);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-red);
+            color: var(--silver-bright);
+            box-shadow: 0 4px 20px rgba(139, 26, 26, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(139, 26, 26, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--silver-bright);
+            border: 1px solid var(--silver);
+        }
+
+        .btn-secondary:hover {
+            background: var(--silver-bright);
+            color: var(--charcoal-dark);
+            border-color: var(--silver-bright);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards, bounce 2s ease infinite 2s;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--silver);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--red);
+            border-radius: 2px;
+            animation: scrollDown 1.5s ease infinite;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes scrollDown {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 20px; }
+        }
+
+        /* ============================================
+           TRUST BADGES SECTION
+           ============================================ */
+        .trust-badges {
+            background: var(--charcoal);
+            padding: 3rem 0;
+            border-top: 1px solid var(--charcoal-lighter);
+            border-bottom: 1px solid var(--charcoal-lighter);
+        }
+
+        .badges-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: center;
+        }
+
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--charcoal-light);
+            border-radius: 50%;
+            border: 2px solid var(--charcoal-lighter);
+            transition: all var(--transition-medium);
+        }
+
+        .badge-item:hover .badge-icon {
+            border-color: var(--red);
+            transform: scale(1.05);
+        }
+
+        .badge-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--silver);
+        }
+
+        .badge-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--silver);
+        }
+
+        /* ============================================
+           SERVICES SECTION
+           ============================================ */
+        .services {
+            padding: var(--section-padding);
+            background: var(--charcoal-dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--charcoal);
+            padding: 2.5rem;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-medium);
+            border: 1px solid var(--charcoal-light);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-red);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-medium);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--charcoal-lighter);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--charcoal-light);
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-medium);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--red);
+        }
+
+        .service-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--silver);
+            transition: fill var(--transition-medium);
+        }
+
+        .service-card:hover .service-icon svg {
+            fill: var(--silver-bright);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--silver-bright);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--silver);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           STATS / WHY CHOOSE US SECTION
+           ============================================ */
+        .stats {
+            padding: var(--section-padding);
+            background: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920') center/cover;
+            opacity: 0.03;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            background: var(--charcoal-light);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--charcoal-lighter);
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--red);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--silver-bright);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+        }
+
+        .stat-number .counter {
+            display: inline;
+        }
+
+        .stat-number .suffix {
+            font-size: 2rem;
+            color: var(--red);
+            margin-left: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--silver);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .differentiators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .diff-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(45, 45, 45, 0.5);
+            border-radius: 4px;
+            border: 1px solid var(--charcoal-lighter);
+            transition: all var(--transition-medium);
+        }
+
+        .diff-item:hover {
+            background: var(--charcoal-light);
+            transform: translateX(5px);
+        }
+
+        .diff-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--red-dark);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .diff-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--silver-bright);
+        }
+
+        .diff-text {
+            font-size: 0.95rem;
+            color: var(--silver-light);
+            font-weight: 400;
+        }
+
+        /* ============================================
+           PROCESS SECTION
+           ============================================ */
+        .process {
+            padding: var(--section-padding);
+            background: var(--charcoal-dark);
+        }
+
+        .process-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 60px;
+            right: 60px;
+            height: 2px;
+            background: var(--charcoal-lighter);
+        }
+
+        .process-step {
+            flex: 1;
+            min-width: 220px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--charcoal);
+            border: 3px solid var(--charcoal-lighter);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--silver);
+            transition: all var(--transition-medium);
+        }
+
+        .process-step:hover .step-number {
+            border-color: var(--red);
+            color: var(--red);
+            transform: scale(1.1);
+        }
+
+        .process-step h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--silver-bright);
+            margin-bottom: 0.75rem;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--silver);
+            font-weight: 300;
+            padding: 0 1rem;
+        }
+
+        /* ============================================
+           ABOUT / TEAM SECTION
+           ============================================ */
+        .about {
+            padding: var(--section-padding);
+            background: var(--charcoal);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: transform var(--transition-slow);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, var(--charcoal), transparent);
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1;
+            background: var(--red);
+            padding: 1rem 1.5rem;
+            border-radius: 2px;
+        }
+
+        .about-image-badge span {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--silver-bright);
+            line-height: 1;
+        }
+
+        .about-image-badge small {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--silver-light);
+        }
+
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
+            color: var(--silver-bright);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .about-text h2 span {
+            color: var(--red);
+        }
+
+        .about-text p {
+            color: var(--silver);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .about-text .signature {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--charcoal-lighter);
+        }
+
+        .about-text .signature strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--silver-bright);
+            margin-bottom: 0.25rem;
+        }
+
+        .about-text .signature span {
+            font-size: 0.9rem;
+            color: var(--silver);
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact {
+            padding: var(--section-padding);
+            background: var(--charcoal-dark);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--silver-bright);
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.25rem;
+            background: var(--charcoal);
+            border-radius: 4px;
+            border: 1px solid var(--charcoal-light);
+            transition: all var(--transition-medium);
+        }
+
+        .contact-item:hover {
+            border-color: var(--red);
+            transform: translateX(5px);
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--charcoal-light);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--red);
+        }
+
+        .contact-item-content h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--silver);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-item-content p,
+        .contact-item-content a {
+            color: var(--silver-bright);
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        .contact-item-content a:hover {
+            color: var(--red);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .hours-grid span:first-child {
+            color: var(--silver);
+        }
+
+        .contact-cta {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-call {
+            background: var(--gradient-red);
+            color: var(--silver-bright);
+        }
+
+        .contact-map {
+            border-radius: 4px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+            background: var(--charcoal);
+            border: 1px solid var(--charcoal-light);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(100%) brightness(0.8) contrast(1.1);
+            transition: filter var(--transition-medium);
+        }
+
+        .contact-map:hover iframe {
+            filter: grayscale(50%) brightness(0.9) contrast(1);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background: var(--charcoal);
+            padding: 3rem 0;
+            border-top: 1px solid var(--charcoal-light);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--silver-bright);
+        }
+
+        .footer-logo span {
+            color: var(--red);
+        }
+
+        .footer-text {
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--red);
+        }
+
+        /* ============================================
+           MOBILE RESPONSIVENESS
+           ============================================ */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-map {
+                min-height: 350px;
+            }
+
+            .process-timeline::before {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 60px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--charcoal);
+                flex-direction: column;
+                padding: 100px 40px 40px;
+                transition: right var(--transition-medium);
+                border-left: 1px solid var(--charcoal-light);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+
+            .badges-wrapper {
+                gap: 1.5rem;
+            }
+
+            .badge-item {
+                flex: 0 0 calc(50% - 1rem);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .process-step {
+                min-width: 100%;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .badge-item {
+                flex: 0 0 100%;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-item-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">KAROSSERIE<span>DIERUFF</span></a>
+            <ul class="nav-links">
+                <li><a href="#services">Leistungen</a></li>
+                <li><a href="#vorteile">Vorteile</a></li>
+                <li><a href="#ablauf">Ablauf</a></li>
+                <li><a href="#about">Über Uns</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="mobile-toggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1920&q=80" alt="Professionelle Autolackierung" id="hero-img">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">Meisterbetrieb seit 1989</span>
+            <h1>Ihr Karosserie-Meisterbetrieb in <span>Stuttgart-Degerloch</span> — Seit über 35 Jahren.</h1>
+            <p>Fachgerechte Reparatur. Perfektes Lackierergebnis. Familiengeführt.</p>
+            <div class="hero-buttons">
+                <a href="#kontakt" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    Termin vereinbaren
+                </a>
+                <a href="#services" class="btn btn-secondary">Unsere Leistungen</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-wrapper">
+                <div class="badge-item fade-up">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    </div>
+                    <span class="badge-text">Meisterbetrieb</span>
+                </div>
+                <div class="badge-item fade-up delay-1">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <span class="badge-text">Innungsfachbetrieb</span>
+                </div>
+                <div class="badge-item fade-up delay-2">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <span class="badge-text">Versicherungspartner</span>
+                </div>
+                <div class="badge-item fade-up delay-3">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    </div>
+                    <span class="badge-text">35+ Jahre Erfahrung</span>
+                </div>
+                <div class="badge-item fade-up delay-4">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <span class="badge-text">Top-Bewertungen</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <span class="section-title fade-up">Unsere Leistungen</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Vom Kleinschaden bis zur Komplettrestauration — wir liefern höchste Qualität für Ihr Fahrzeug.</p>
+
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                    </div>
+                    <h3>Unfall-Instandsetzung</h3>
+                    <p>Professionelle Karosseriereparatur nach Unfällen — vom Blechschaden bis zur Rahmenrichtung. Wir bringen Ihr Fahrzeug zurück in Bestform.</p>
+                </div>
+
+                <div class="service-card fade-up delay-1">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2c-4.42 0-8 3.58-8 8 0 4.42 8 12 8 12s8-7.58 8-12c0-4.42-3.58-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+                    </div>
+                    <h3>Hagel- & Dellenreparatur</h3>
+                    <p>Lackschonende Dellenentfernung (PDR) ohne Neulackierung. Schnell, wirtschaftlich und werterhaltend — auch für Leasingfahrzeuge.</p>
+                </div>
+
+                <div class="service-card fade-up delay-2">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17.66 8L12 2.35 6.34 8C4.78 9.56 4 11.64 4 13.64s.78 4.11 2.34 5.67 3.61 2.35 5.66 2.35 4.1-.79 5.66-2.35S20 15.64 20 13.64 19.22 9.56 17.66 8zM6 14c.01-2 .62-3.27 1.76-4.4L12 5.27l4.24 4.38C17.38 10.77 17.99 12 18 14H6z"/></svg>
+                    </div>
+                    <h3>Autolackierung</h3>
+                    <p>Präzise Farbtöne und makellose Oberflächen. Von der Spot-Reparatur bis zur Komplettlackierung — in Werksqualität.</p>
+                </div>
+
+                <div class="service-card fade-up delay-3">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg>
+                    </div>
+                    <h3>Scheibenreparatur</h3>
+                    <p>Steinschlagreparatur und Scheibentausch. Schnelle Abwicklung mit Ihrer Versicherung — oft ohne Selbstbeteiligung.</p>
+                </div>
+
+                <div class="service-card fade-up delay-4">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/><path d="M12 7.5L9 11h6z" fill="var(--red)"/></svg>
+                    </div>
+                    <h3>Oldtimer-Restaurierung</h3>
+                    <p>Liebevolle Restaurierung klassischer Fahrzeuge. Originalgetreu oder individuell — wir hauchen Ihrem Schatz neues Leben ein.</p>
+                </div>
+
+                <div class="service-card fade-up delay-5">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                    </div>
+                    <h3>Sonderlackierungen</h3>
+                    <p>Individuelle Lackierungen, Folierungen und Spezialeffekte. Setzen Sie Ihr Fahrzeug einzigartig in Szene.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Why Choose Us Section -->
+    <section class="stats" id="vorteile">
+        <div class="container">
+            <span class="section-title fade-up">Warum Karosserie Dieruff?</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Vertrauen Sie auf Erfahrung, Qualität und persönlichen Service.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card fade-up">
+                    <div class="stat-number">
+                        <span class="counter" data-target="35">0</span>
+                        <span class="suffix">+</span>
+                    </div>
+                    <span class="stat-label">Jahre Erfahrung</span>
+                </div>
+                <div class="stat-card fade-up delay-1">
+                    <div class="stat-number">
+                        <span class="counter" data-target="1000">0</span>
+                        <span class="suffix">+</span>
+                    </div>
+                    <span class="stat-label">Zufriedene Kunden</span>
+                </div>
+                <div class="stat-card fade-up delay-2">
+                    <div class="stat-number">
+                        <span class="counter" data-target="100">0</span>
+                        <span class="suffix">%</span>
+                    </div>
+                    <span class="stat-label">Versicherungsabwicklung</span>
+                </div>
+            </div>
+
+            <div class="differentiators">
+                <div class="diff-item fade-up">
+                    <div class="diff-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <span class="diff-text">Familiengeführter Meisterbetrieb</span>
+                </div>
+                <div class="diff-item fade-up delay-1">
+                    <div class="diff-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                    </div>
+                    <span class="diff-text">Kostenlose Ersatzwagen-Vermittlung</span>
+                </div>
+                <div class="diff-item fade-up delay-2">
+                    <div class="diff-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                    <span class="diff-text">Hol- und Bringdienst</span>
+                </div>
+                <div class="diff-item fade-up delay-3">
+                    <div class="diff-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                    </div>
+                    <span class="diff-text">Abschleppdienst bei Bedarf</span>
+                </div>
+                <div class="diff-item fade-up delay-4">
+                    <div class="diff-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                    </div>
+                    <span class="diff-text">Partner zahlreicher Versicherungen</span>
+                </div>
+                <div class="diff-item fade-up delay-5">
+                    <div class="diff-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+                    </div>
+                    <span class="diff-text">Partner zahlreicher Autohäuser</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="ablauf">
+        <div class="container">
+            <span class="section-title fade-up">So läuft's ab</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Von der Kontaktaufnahme bis zur Übergabe — transparent und unkompliziert.</p>
+
+            <div class="process-timeline">
+                <div class="process-step fade-up">
+                    <div class="step-number">1</div>
+                    <h3>Kontakt & Terminvereinbarung</h3>
+                    <p>Rufen Sie uns an oder nutzen Sie unser Kontaktformular. Wir vereinbaren zeitnah einen passenden Termin.</p>
+                </div>
+                <div class="process-step fade-up delay-1">
+                    <div class="step-number">2</div>
+                    <h3>Kostenvoranschlag & Begutachtung</h3>
+                    <p>Wir begutachten Ihr Fahrzeug vor Ort und erstellen einen detaillierten, transparenten Kostenvoranschlag.</p>
+                </div>
+                <div class="process-step fade-up delay-2">
+                    <div class="step-number">3</div>
+                    <h3>Fachgerechte Reparatur</h3>
+                    <p>Unsere Meister führen die Arbeiten präzise und termingerecht durch — mit höchstem Qualitätsanspruch.</p>
+                </div>
+                <div class="process-step fade-up delay-3">
+                    <div class="step-number">4</div>
+                    <h3>Übergabe & Qualitätskontrolle</h3>
+                    <p>Nach gründlicher Endkontrolle übergeben wir Ihr Fahrzeug — makellos und bereit für die Straße.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image scale-in">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80" alt="Karosserie Werkstatt Stuttgart">
+                    <div class="about-image-badge">
+                        <span>35+</span>
+                        <small>Jahre Erfahrung</small>
+                    </div>
+                </div>
+                <div class="about-text fade-up">
+                    <h2>Familientradition trifft auf <span>Handwerkskunst</span></h2>
+                    <p>Seit über 35 Jahren steht Karosserie Dieruff für exzellente Qualität und persönlichen Service in Stuttgart-Degerloch. Was als kleine Werkstatt begann, ist heute ein moderner Meisterbetrieb — geführt von Menschen, die ihre Leidenschaft zum Beruf gemacht haben.</p>
+                    <p>Unser Team aus qualifizierten Fachkräften verbindet traditionelles Handwerk mit modernster Technik. Ob Unfallreparatur, Lackierung oder Oldtimer-Restaurierung: Wir behandeln jedes Fahrzeug, als wäre es unser eigenes.</p>
+                    <p>Als familiengeführter Betrieb liegt uns persönliche Beratung am Herzen. Bei uns sind Sie keine Nummer — Sie sind Teil der Dieruff-Familie.</p>
+                    <div class="signature">
+                        <strong>Carlos Humberto Matos</strong>
+                        <span>Geschäftsführer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="kontakt">
+        <div class="container">
+            <span class="section-title fade-up">Jetzt Termin vereinbaren</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Wir freuen uns auf Ihren Besuch.</p>
+
+            <div class="contact-wrapper">
+                <div class="contact-info fade-up">
+                    <h3>Kontakt & Anfahrt</h3>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Adresse</h4>
+                            <p>Chemnitzer Str. 5<br>70597 Stuttgart-Degerloch</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Telefon</h4>
+                            <a href="tel:+497117272373">0711 727237-3</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>E-Mail</h4>
+                            <a href="mailto:info@karosserie-dieruff.de">info@karosserie-dieruff.de</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        </div>
+                        <div class="contact-item-content">
+                            <h4>Öffnungszeiten</h4>
+                            <div class="hours-grid">
+                                <span>Mo - Do:</span><span>07:00 - 17:00</span>
+                                <span>Freitag:</span><span>07:00 - 14:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-cta">
+                        <a href="tel:+497117272373" class="btn btn-call">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                            Jetzt anrufen
+                        </a>
+                        <a href="#" class="btn btn-secondary" id="booking-btn">Online buchen</a>
+                    </div>
+                </div>
+
+                <div class="contact-map fade-up delay-1">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.7936857834645!2d9.169097876890756!3d48.74542677131641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799db5a6e6d8e1d%3A0x8e6d8e1d8e6d8e1d!2sChemnitzer%20Str.%205%2C%2070597%20Stuttgart!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Standort Karosserie Dieruff">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">KAROSSERIE<span>DIERUFF</span></span>
+                <span class="footer-text">&copy; 2024 Karosserie Dieruff. Alle Rechte vorbehalten.</span>
+                <div class="footer-links">
+                    <a href="#">Impressum</a>
+                    <a href="#">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // NAVIGATION
+        // ============================================
+        const navbar = document.querySelector('.navbar');
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Scroll effect for navbar
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ============================================
+        // PARALLAX EFFECT
+        // ============================================
+        const heroImg = document.getElementById('hero-img');
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            if (heroImg && scrolled < window.innerHeight) {
+                heroImg.style.transform = `scale(1.1) translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // ============================================
+        // SCROLL ANIMATIONS
+        // ============================================
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Trigger counter animation if it's a stat card
+                    if (entry.target.classList.contains('stat-card')) {
+                        const counter = entry.target.querySelector('.counter');
+                        if (counter && !counter.classList.contains('counted')) {
+                            animateCounter(counter);
+                            counter.classList.add('counted');
+                        }
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-up, .fade-in, .scale-in, .stat-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ============================================
+        // COUNTER ANIMATION
+        // ============================================
+        function animateCounter(counter) {
+            const target = parseInt(counter.dataset.target);
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+
+            requestAnimationFrame(updateCounter);
+        }
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ============================================
+        // BOOKING BUTTON PLACEHOLDER
+        // ============================================
+        document.getElementById('booking-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Bitte ersetzen Sie diesen Link mit Ihrem Calendly oder Buchungssystem.');
+            // Replace with: window.open('YOUR_CALENDLY_LINK', '_blank');
+        });
+    </script>
+</body>
+</html>
