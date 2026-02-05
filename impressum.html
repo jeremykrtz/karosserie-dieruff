@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Impressum - Karosserie Dieruff GmbH in Stuttgart-Degerloch. Rechtliche Informationen und Kontaktdaten.">
+    <meta name="robots" content="noindex, follow">
+    <title>Impressum | Karosserie Dieruff GmbH Stuttgart</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --charcoal-dark: #0d0d0d;
+            --charcoal: #1a1a1a;
+            --charcoal-light: #2d2d2d;
+            --charcoal-lighter: #3d3d3d;
+            --silver-dark: #8a8a8a;
+            --silver: #b8b8b8;
+            --silver-light: #d4d4d4;
+            --silver-bright: #e8e8e8;
+            --red-dark: #6b0f0f;
+            --red: #8b1a1a;
+            --red-light: #a52a2a;
+            --gradient-red: linear-gradient(135deg, var(--red-dark) 0%, var(--red) 50%, var(--red-light) 100%);
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--charcoal-dark);
+            color: var(--silver-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            background: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--charcoal-light);
+        }
+
+        .navbar .container {
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--silver-bright);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--silver-bright);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--silver-bright);
+            transition: all var(--transition-fast);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 140px 0 60px;
+            background: var(--charcoal);
+            border-bottom: 1px solid var(--charcoal-light);
+        }
+
+        .page-header h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            color: var(--silver-bright);
+            margin-bottom: 0.5rem;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--silver);
+        }
+
+        .breadcrumb a {
+            color: var(--red);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--red-light);
+        }
+
+        /* Content */
+        .legal-content {
+            padding: 60px 0;
+            flex: 1;
+        }
+
+        .legal-content h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--silver-bright);
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--charcoal-lighter);
+        }
+
+        .legal-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .legal-content p {
+            margin-bottom: 1rem;
+            color: var(--silver);
+        }
+
+        .legal-content a {
+            color: var(--red);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .legal-content a:hover {
+            color: var(--red-light);
+            text-decoration: underline;
+        }
+
+        .contact-block {
+            background: var(--charcoal);
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--charcoal-light);
+            margin: 1.5rem 0;
+        }
+
+        .contact-block p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-block strong {
+            color: var(--silver-bright);
+            font-weight: 600;
+        }
+
+        .notice-box {
+            background: var(--charcoal);
+            padding: 1.5rem 2rem;
+            border-left: 3px solid var(--red);
+            margin: 2rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .notice-box h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--silver-bright);
+            margin-bottom: 0.75rem;
+        }
+
+        .notice-box p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            padding: 2rem 0;
+            border-top: 1px solid var(--charcoal-light);
+            margin-top: auto;
+        }
+
+        .footer .container {
+            max-width: 1200px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--silver-bright);
+        }
+
+        .footer-logo span {
+            color: var(--red);
+        }
+
+        .footer-text {
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--red);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--charcoal);
+                flex-direction: column;
+                padding: 100px 40px 40px;
+                transition: right var(--transition-medium);
+                border-left: 1px solid var(--charcoal-light);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">KAROSSERIE<span>DIERUFF</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#services">Leistungen</a></li>
+                <li><a href="index.html#vorteile">Vorteile</a></li>
+                <li><a href="index.html#ablauf">Ablauf</a></li>
+                <li><a href="index.html#about">Über Uns</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="mobile-toggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <h1>Impressum</h1>
+            <div class="breadcrumb">
+                <a href="index.html">Startseite</a>
+                <span>/</span>
+                <span>Impressum</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="legal-content">
+        <div class="container">
+            <h2>Verantwortlich für den Inhalt</h2>
+
+            <div class="contact-block">
+                <p><strong>Karosserie Dieruff GmbH</strong></p>
+                <p>Chemnitzer Str. 5</p>
+                <p>70597 Stuttgart - Degerloch</p>
+                <p>&nbsp;</p>
+                <p><strong>Telefon:</strong> <a href="tel:+4971172723730">0711 / 72 72 37 - 3</a></p>
+                <p><strong>Telefax:</strong> 0711 / 72 72 37 - 50</p>
+                <p><strong>E-Mail:</strong> <a href="mailto:karosserie-dieruff@t-online.de">karosserie-dieruff@t-online.de</a></p>
+            </div>
+
+            <p><strong>Geschäftsführer:</strong> Carlos Humberto Matos</p>
+            <p><strong>Handelsregister:</strong> Amtsgericht Stuttgart HRB 6753</p>
+            <p><strong>Umsatzsteuer-ID:</strong> DE225569268</p>
+            <p><strong>Gerichtsstand:</strong> Stuttgart</p>
+
+            <div class="notice-box">
+                <h3>Hinweis</h3>
+                <p>Für alle Links und Unterlinks zu anderen Seiten im Internet gilt, dass der Betreiber von www.karosserie-dieruff.de keinerlei Einfluss auf Gestaltung und die Inhalte der gelinkten Seiten hat. Deshalb distanziert sich der Betreiber von www.karosserie-dieruff.de hiermit ausdrücklich von allen Inhalten, aller Seiten, die durch seine Seite erreichbar sind, und macht sich ihre Inhalte nicht zueigen.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">KAROSSERIE<span>DIERUFF</span></span>
+                <span class="footer-text">&copy; 2024 Karosserie Dieruff. Alle Rechte vorbehalten.</span>
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
