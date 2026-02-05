@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Karosserie Dieruff - Ihr Meisterbetrieb für Karosserie und Autolackierung in Stuttgart-Degerloch. Seit über 35 Jahren Qualität und Präzision.">
+    <meta name="keywords" content="Karosserie Stuttgart, Autolackierung Stuttgart, Unfallreparatur Degerloch, Hagelschaden Reparatur, Oldtimer Restaurierung, Meisterbetrieb Karosserie">
+    <title>Karosserie Dieruff | Meisterbetrieb Stuttgart-Degerloch | Dark Theme</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Light Blue (not teal/green) */
+            --blue-dark: #2980B9;
+            --blue: #3498DB;
+            --blue-light: #5DADE2;
+            --blue-bright: #85C1E9;
+            --blue-pale: #1a3a52;
+
+            /* Dark Theme Neutrals */
+            --bg-dark: #0a0f14;
+            --bg-primary: #0f1419;
+            --bg-secondary: #1a2332;
+            --bg-tertiary: #243447;
+            --bg-card: #1e2d3d;
+
+            /* Text Colors */
+            --text-bright: #FFFFFF;
+            --text-primary: #E8EEF2;
+            --text-secondary: #A8B9C8;
+            --text-muted: #6B8299;
+
+            /* Borders */
+            --border-dark: #1e2d3d;
+            --border-light: #2a3f54;
+
+            /* Gradients */
+            --gradient-blue: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue-light) 100%);
+            --gradient-header: linear-gradient(90deg, var(--blue) 0%, var(--blue-light) 100%);
+
+            /* Typography */
+            --font-heading: 'Roboto', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+
+            /* Spacing */
+            --section-padding: 80px 0;
+            --container-width: 1200px;
+
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s ease;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
+            --shadow-glow: 0 0 30px rgba(93, 173, 226, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-bright);
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .accent-line {
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-blue);
+            margin: 0 auto 1.5rem;
+            border-radius: 2px;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
+
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 0.75rem 0;
+            background: transparent;
+            transition: all var(--transition-medium);
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 20, 25, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--blue-light); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--blue-light);
+            transition: width var(--transition-medium);
+        }
+
+        .nav-links a:hover { color: var(--blue-light); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-bright);
+            transition: all var(--transition-fast);
+        }
+
+        .mobile-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-primary) 50%, var(--bg-secondary) 100%);
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(93, 173, 226, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content { padding: 2rem 0; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--blue-pale);
+            border: 1px solid var(--border-light);
+            color: var(--blue-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease 0.2s forwards;
+        }
+
+        .hero-badge svg { width: 16px; height: 16px; fill: var(--blue-light); }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            font-weight: 700;
+            color: var(--text-bright);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease 0.3s forwards;
+        }
+
+        .hero h1 span { color: var(--blue-light); }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease 0.4s forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease 0.5s forwards;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all var(--transition-medium);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-blue);
+            color: var(--text-bright);
+            box-shadow: 0 4px 15px rgba(93, 173, 226, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(93, 173, 226, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--blue-light);
+            color: var(--blue-light);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: scaleIn 0.8s ease 0.4s forwards;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+        }
+
+        .hero-image-bg {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            background: var(--blue-pale);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { to { opacity: 1; transform: scale(1); } }
+
+        /* Trust Badges */
+        .trust-badges {
+            background: var(--gradient-header);
+            padding: 2rem 0;
+        }
+
+        .badges-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-bright);
+        }
+
+        .badge-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+        }
+
+        .badge-icon svg { width: 22px; height: 22px; fill: var(--text-bright); }
+        .badge-text { font-size: 0.9rem; font-weight: 600; }
+
+        /* Services */
+        .services {
+            padding: var(--section-padding);
+            background: var(--bg-primary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-dark);
+            transition: all var(--transition-medium);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue-pale);
+            border-radius: 12px;
+            margin-bottom: 1.25rem;
+            transition: all var(--transition-medium);
+        }
+
+        .service-card:hover .service-icon { background: var(--blue); }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--blue-light);
+            transition: fill var(--transition-medium);
+        }
+
+        .service-card:hover .service-icon svg { fill: var(--text-bright); }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Stats */
+        .stats {
+            padding: var(--section-padding);
+            background: var(--bg-secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--blue-light);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+        }
+
+        .stat-number .suffix { font-size: 1.75rem; margin-left: 0.1rem; }
+        .stat-label { font-size: 0.95rem; color: var(--text-secondary); font-weight: 500; }
+
+        .differentiators {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .diff-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: var(--bg-card);
+            border-radius: 10px;
+            border: 1px solid var(--border-dark);
+            transition: all var(--transition-medium);
+        }
+
+        .diff-item:hover {
+            border-color: var(--blue);
+            background: var(--blue-pale);
+        }
+
+        .diff-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .diff-icon svg { width: 20px; height: 20px; fill: var(--text-bright); }
+        .diff-text { font-size: 0.95rem; color: var(--text-primary); font-weight: 500; }
+
+        /* Process */
+        .process {
+            padding: var(--section-padding);
+            background: var(--bg-primary);
+        }
+
+        .process-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .process-step { text-align: center; }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 3px solid var(--blue);
+            border-radius: 50%;
+            margin: 0 auto 1.25rem;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue-light);
+            transition: all var(--transition-medium);
+        }
+
+        .process-step:hover .step-number {
+            background: var(--blue);
+            color: var(--text-bright);
+            transform: scale(1.1);
+        }
+
+        .process-step h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* About */
+        .about {
+            padding: var(--section-padding);
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: var(--blue);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            color: var(--text-bright);
+        }
+
+        .about-image-badge span {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-image-badge small { font-size: 0.8rem; opacity: 0.9; }
+
+        .about-text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .about-text h2 span { color: var(--blue-light); }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .about-text .signature {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .about-text .signature strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-bright);
+            margin-bottom: 0.25rem;
+        }
+
+        .about-text .signature span { font-size: 0.9rem; color: var(--text-secondary); }
+
+        /* Contact */
+        .contact {
+            padding: var(--section-padding);
+            background: var(--bg-primary);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-dark);
+            transition: all var(--transition-medium);
+        }
+
+        .contact-item:hover {
+            border-color: var(--blue);
+            transform: translateX(5px);
+        }
+
+        .contact-item-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--blue-pale);
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-icon svg { width: 22px; height: 22px; fill: var(--blue-light); }
+
+        .contact-item-content h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+            font-weight: 600;
+        }
+
+        .contact-item-content p,
+        .contact-item-content a {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item-content a:hover { color: var(--blue-light); }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.25rem 1rem;
+        }
+
+        .hours-grid span:first-child { color: var(--text-muted); }
+
+        .contact-cta {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .contact-map {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 100%;
+            min-height: 400px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-dark);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-dark);
+            padding: 2.5rem 0;
+            border-top: 1px solid var(--border-dark);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-bright);
+        }
+
+        .footer-logo span { color: var(--blue-light); }
+        .footer-text { color: var(--text-muted); font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover { color: var(--blue-light); }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { order: 1; }
+            .hero-image { order: 0; margin-bottom: 2rem; }
+            .hero-image img { max-width: 350px; }
+            .hero-buttons { justify-content: center; }
+            .about-content { grid-template-columns: 1fr; gap: 2rem; }
+            .about-image { order: -1; }
+            .about-image img { height: 350px; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .contact-map { min-height: 300px; }
+        }
+
+        @media (max-width: 768px) {
+            :root { --section-padding: 60px 0; }
+
+            .nav-links {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 80%; max-width: 300px;
+                height: 100vh;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 100px 30px 30px;
+                transition: right var(--transition-medium);
+                box-shadow: var(--shadow-lg);
+                border-left: 1px solid var(--border-dark);
+            }
+
+            .nav-links.active { right: 0; }
+            .mobile-toggle { display: flex; z-index: 1001; }
+            .hero { min-height: auto; padding: 120px 0 60px; }
+            .hero h1 { font-size: 1.75rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 280px; justify-content: center; }
+            .badges-wrapper { gap: 1.5rem; }
+            .badge-item { flex: 0 0 calc(50% - 1rem); justify-content: center; }
+            .services-grid { grid-template-columns: 1fr; }
+            .stat-number { font-size: 2.5rem; }
+            .footer-content { flex-direction: column; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 15px; }
+            .hero-image img { max-width: 280px; }
+            .badge-item { flex: 0 0 100%; }
+            .contact-item { flex-direction: column; text-align: center; }
+            .contact-item-icon { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Karosserie <span>Dieruff</span></a>
+            <ul class="nav-links">
+                <li><a href="#services">Leistungen</a></li>
+                <li><a href="#vorteile">Vorteile</a></li>
+                <li><a href="#ablauf">Ablauf</a></li>
+                <li><a href="#about">Über Uns</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="mobile-toggle"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    Meisterbetrieb seit 1989
+                </span>
+                <h1>Ihr Karosserie-Meisterbetrieb in <span>Stuttgart-Degerloch</span></h1>
+                <p>Fachgerechte Reparatur. Perfektes Lackierergebnis. Familiengeführt seit über 35 Jahren.</p>
+                <div class="hero-buttons">
+                    <a href="#kontakt" class="btn btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        Termin vereinbaren
+                    </a>
+                    <a href="#services" class="btn btn-secondary">Unsere Leistungen</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-bg"></div>
+                <img src="images/mercedes-classic.png" alt="Karosserie Dieruff - Mercedes Oldtimer">
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-wrapper">
+                <div class="badge-item">
+                    <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+                    <span class="badge-text">Meisterbetrieb</span>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+                    <span class="badge-text">Innungsfachbetrieb</span>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                    <span class="badge-text">Versicherungspartner</span>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+                    <span class="badge-text">35+ Jahre Erfahrung</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <span class="section-title fade-up">Unsere Leistungen</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Vom Kleinschaden bis zur Komplettrestauration — wir liefern höchste Qualität.</p>
+            <div class="services-grid">
+                <div class="service-card fade-up">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+                    <h3>Unfall-Instandsetzung</h3>
+                    <p>Professionelle Karosseriereparatur nach Unfällen — vom Blechschaden bis zur Rahmenrichtung.</p>
+                </div>
+                <div class="service-card fade-up delay-1">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2c-4.42 0-8 3.58-8 8 0 4.42 8 12 8 12s8-7.58 8-12c0-4.42-3.58-8-8-8zm0 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg></div>
+                    <h3>Hagel- & Dellenreparatur</h3>
+                    <p>Lackschonende Dellenentfernung (PDR) ohne Neulackierung. Schnell und werterhaltend.</p>
+                </div>
+                <div class="service-card fade-up delay-2">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M17.66 8L12 2.35 6.34 8C4.78 9.56 4 11.64 4 13.64s.78 4.11 2.34 5.67 3.61 2.35 5.66 2.35 4.1-.79 5.66-2.35S20 15.64 20 13.64 19.22 9.56 17.66 8zM6 14c.01-2 .62-3.27 1.76-4.4L12 5.27l4.24 4.38C17.38 10.77 17.99 12 18 14H6z"/></svg></div>
+                    <h3>Autolackierung</h3>
+                    <p>Präzise Farbtöne und makellose Oberflächen. Von Spot-Reparatur bis Komplettlackierung.</p>
+                </div>
+                <div class="service-card fade-up delay-3">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14z"/></svg></div>
+                    <h3>Scheibenreparatur</h3>
+                    <p>Steinschlagreparatur und Scheibentausch. Schnelle Abwicklung mit Ihrer Versicherung.</p>
+                </div>
+                <div class="service-card fade-up delay-4">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+                    <h3>Oldtimer-Restaurierung</h3>
+                    <p>Liebevolle Restaurierung klassischer Fahrzeuge. Originalgetreu oder individuell.</p>
+                </div>
+                <div class="service-card fade-up delay-5">
+                    <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div>
+                    <h3>Sonderlackierungen</h3>
+                    <p>Individuelle Lackierungen, Folierungen und Spezialeffekte für Ihr Fahrzeug.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" id="vorteile">
+        <div class="container">
+            <span class="section-title fade-up">Warum Karosserie Dieruff?</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Vertrauen Sie auf Erfahrung, Qualität und persönlichen Service.</p>
+            <div class="stats-grid">
+                <div class="stat-card fade-up">
+                    <div class="stat-number"><span class="counter" data-target="35">0</span><span class="suffix">+</span></div>
+                    <span class="stat-label">Jahre Erfahrung</span>
+                </div>
+                <div class="stat-card fade-up delay-1">
+                    <div class="stat-number"><span class="counter" data-target="1000">0</span><span class="suffix">+</span></div>
+                    <span class="stat-label">Zufriedene Kunden</span>
+                </div>
+                <div class="stat-card fade-up delay-2">
+                    <div class="stat-number"><span class="counter" data-target="100">0</span><span class="suffix">%</span></div>
+                    <span class="stat-label">Versicherungsabwicklung</span>
+                </div>
+            </div>
+            <div class="differentiators">
+                <div class="diff-item fade-up"><div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div><span class="diff-text">Familiengeführter Meisterbetrieb</span></div>
+                <div class="diff-item fade-up delay-1"><div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div><span class="diff-text">Kostenlose Ersatzwagen-Vermittlung</span></div>
+                <div class="diff-item fade-up delay-2"><div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><span class="diff-text">Hol- und Bringdienst</span></div>
+                <div class="diff-item fade-up delay-3"><div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div><span class="diff-text">Abschleppdienst bei Bedarf</span></div>
+                <div class="diff-item fade-up delay-4"><div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg></div><span class="diff-text">Partner zahlreicher Versicherungen</span></div>
+                <div class="diff-item fade-up delay-5"><div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg></div><span class="diff-text">Partner zahlreicher Autohäuser</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="ablauf">
+        <div class="container">
+            <span class="section-title fade-up">So läuft's ab</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Von der Kontaktaufnahme bis zur Übergabe — transparent und unkompliziert.</p>
+            <div class="process-timeline">
+                <div class="process-step fade-up"><div class="step-number">1</div><h3>Kontakt & Termin</h3><p>Rufen Sie uns an oder nutzen Sie unser Kontaktformular.</p></div>
+                <div class="process-step fade-up delay-1"><div class="step-number">2</div><h3>Begutachtung</h3><p>Wir erstellen einen detaillierten Kostenvoranschlag.</p></div>
+                <div class="process-step fade-up delay-2"><div class="step-number">3</div><h3>Reparatur</h3><p>Unsere Meister führen die Arbeiten präzise durch.</p></div>
+                <div class="process-step fade-up delay-3"><div class="step-number">4</div><h3>Übergabe</h3><p>Nach Endkontrolle übergeben wir Ihr Fahrzeug.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image scale-in">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80" alt="Karosserie Werkstatt">
+                    <div class="about-image-badge"><span>35+</span><small>Jahre Erfahrung</small></div>
+                </div>
+                <div class="about-text fade-up">
+                    <h2>Familientradition trifft auf <span>Handwerkskunst</span></h2>
+                    <p>Seit über 35 Jahren steht Karosserie Dieruff für exzellente Qualität und persönlichen Service in Stuttgart-Degerloch.</p>
+                    <p>Unser Team verbindet traditionelles Handwerk mit modernster Technik. Wir behandeln jedes Fahrzeug, als wäre es unser eigenes.</p>
+                    <p>Als familiengeführter Betrieb liegt uns persönliche Beratung am Herzen.</p>
+                    <div class="signature"><strong>Carlos Humberto Matos</strong><span>Geschäftsführer</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+        <div class="container">
+            <span class="section-title fade-up">Jetzt Termin vereinbaren</span>
+            <div class="accent-line fade-up"></div>
+            <p class="section-subtitle fade-up">Wir freuen uns auf Ihren Besuch.</p>
+            <div class="contact-wrapper">
+                <div class="contact-info fade-up">
+                    <h3>Kontakt & Anfahrt</h3>
+                    <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div><div class="contact-item-content"><h4>Adresse</h4><p>Chemnitzer Str. 5<br>70597 Stuttgart-Degerloch</p></div></div>
+                    <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div><div class="contact-item-content"><h4>Telefon</h4><a href="tel:+497117272373">0711 727237-3</a></div></div>
+                    <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div><div class="contact-item-content"><h4>E-Mail</h4><a href="mailto:info@karosserie-dieruff.de">info@karosserie-dieruff.de</a></div></div>
+                    <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div><div class="contact-item-content"><h4>Öffnungszeiten</h4><div class="hours-grid"><span>Mo - Do:</span><span>07:00 - 17:00</span><span>Freitag:</span><span>07:00 - 14:00</span></div></div></div>
+                    <div class="contact-cta">
+                        <a href="tel:+497117272373" class="btn btn-primary"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Jetzt anrufen</a>
+                        <a href="#" class="btn btn-secondary" id="booking-btn">Online buchen</a>
+                    </div>
+                </div>
+                <div class="contact-map fade-up delay-1">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.7936857834645!2d9.169097876890756!3d48.74542677131641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799db5a6e6d8e1d%3A0x8e6d8e1d8e6d8e1d!2sChemnitzer%20Str.%205%2C%2070597%20Stuttgart!5e0!3m2!1sde!2sde!4v1700000000000!5m2!1sde!2sde" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-logo">Karosserie <span>Dieruff</span></span>
+                <span class="footer-text">&copy; 2024 Karosserie Dieruff GmbH</span>
+                <div class="footer-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.querySelector('.navbar');
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+        mobileToggle.addEventListener('click', () => { mobileToggle.classList.toggle('active'); navLinks.classList.toggle('active'); });
+        document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => { mobileToggle.classList.remove('active'); navLinks.classList.remove('active'); }));
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const counter = entry.target.querySelector('.counter');
+                    if (counter && !counter.classList.contains('counted')) { animateCounter(counter); counter.classList.add('counted'); }
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up, .scale-in, .stat-card').forEach(el => observer.observe(el));
+
+        function animateCounter(c) {
+            const t = parseInt(c.dataset.target), d = 2000, s = t/(d/16);
+            let cur = 0;
+            const update = () => { cur += s; if (cur < t) { c.textContent = Math.floor(cur); requestAnimationFrame(update); } else c.textContent = t; };
+            requestAnimationFrame(update);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', function(e) {
+            e.preventDefault();
+            const t = document.querySelector(this.getAttribute('href'));
+            if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.pageYOffset - 70, behavior: 'smooth' });
+        }));
+
+        document.getElementById('booking-btn').addEventListener('click', e => { e.preventDefault(); alert('Bitte Calendly-Link einfügen.'); });
+    </script>
+</body>
+</html>
